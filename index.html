@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Movie Search App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Back Button (Fixed Position) -->
+    <button class="back-btn" id="backBtn" style="display: none;">
+        <span class="back-icon">↶</span>
+        <span class="back-text">Back to Search</span>
+    </button>
+
+    <div class="container">
+        <h1>🎬 Movie Search</h1>
+        
+        <div class="search-section">
+            <div class="search-tabs" style="display: none;">
+                <button class="tab-btn active" data-tab="movies">🎬 Movies</button>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Enter movie title..." />
+                <button id="searchButton">
+                    <span class="search-icon">🔍</span>
+                    Search
+                </button>
+            </div>
+            
+            <div class="controls">
+                <div class="sort-controls" id="sortControls">
+                    <label for="sortBy">🔀 Sort by:</label>
+                    <select id="sortBy">
+                        <option value="title">📝 Title</option>
+                        <option value="year">📅 Year</option>
+                        <option value="genre">🎭 Genre</option>
+                        <option value="boxoffice">💰 Box Office</option>
+                        <option value="language">🌍 Language</option>
+                        <option value="rating">⭐ Rating</option>
+                    </select>
+                    <select id="sortOrder">
+                        <option value="asc">⬆️ Ascending</option>
+                        <option value="desc">⬇️ Descending</option>
+                    </select>
+                    <select id="genreFilter" style="display: none;">
+                        <option value="">🎭 All Genres</option>
+                        <option value="action">💥 Action</option>
+                        <option value="adventure">🗺️ Adventure</option>
+                        <option value="animation">🎨 Animation</option>
+                        <option value="biography">📖 Biography</option>
+                        <option value="comedy">😂 Comedy</option>
+                        <option value="crime">🕵️ Crime</option>
+                        <option value="documentary">🎥 Documentary</option>
+                        <option value="drama">🎭 Drama</option>
+                        <option value="family">👨‍👩‍👧‍👦 Family</option>
+                        <option value="fantasy">🧙‍♂️ Fantasy</option>
+                        <option value="horror">👻 Horror</option>
+                        <option value="musical">🎵 Musical</option>
+                        <option value="mystery">🔍 Mystery</option>
+                        <option value="romance">💕 Romance</option>
+                        <option value="sci-fi">🚀 Sci-Fi</option>
+                        <option value="thriller">⚡ Thriller</option>
+                        <option value="war">⚔️ War</option>
+                        <option value="western">🤠 Western</option>
+                    </select>
+                    <select id="languageFilter" style="display: none;">
+                        <option value="">🌍 All Languages</option>
+                        <option value="english">🇺🇸 English</option>
+                        <option value="spanish">🇪🇸 Spanish</option>
+                        <option value="french">🇫🇷 French</option>
+                        <option value="german">🇩🇪 German</option>
+                        <option value="italian">🇮🇹 Italian</option>
+                        <option value="japanese">🇯🇵 Japanese</option>
+                        <option value="korean">🇰🇷 Korean</option>
+                        <option value="chinese">🇨🇳 Chinese</option>
+                        <option value="hindi">🇮🇳 Hindi</option>
+                        <option value="tamil">🇮🇳 Tamil</option>
+                        <option value="telugu">🇮🇳 Telugu</option>
+                        <option value="malayalam">🇮🇳 Malayalam</option>
+                        <option value="kannada">🇮🇳 Kannada</option>
+                        <option value="bengali">🇮🇳 Bengali</option>
+                        <option value="marathi">🇮🇳 Marathi</option>
+                        <option value="punjabi">🇮🇳 Punjabi</option>
+                        <option value="gujarati">🇮🇳 Gujarati</option>
+                        <option value="russian">🇷🇺 Russian</option>
+                        <option value="portuguese">🇵🇹 Portuguese</option>
+                        <option value="arabic">🇸🇦 Arabic</option>
+                    </select>
+                </div>
+                <button class="favorites-btn" id="favoritesBtn">
+                    <span class="fav-icon">💖</span>
+                    View Favorites
+                </button>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner-container">
+                <div class="spinner"></div>
+                <div class="spinner-glow"></div>
+            </div>
+            <p id="loadingText">Searching...</p>
+        </div>
+
+        <div id="results"></div>
+
+        <div class="pagination" id="pagination" style="display: none;">
+            <button id="prevPage">
+                <span class="nav-icon">⬅️</span>
+                Previous
+            </button>
+            <span id="pageInfo">Page 1</span>
+            <button id="nextPage">
+                Next
+                <span class="nav-icon">➡️</span>
+            </button>
+        </div>
+
+        <div id="movieDetails">
+            <button class="close-details" id="closeMovieDetails">×</button>
+            <div class="movie-details-content"></div>
+        </div>
+    </div>
+
+    <!-- Favorites Modal -->
+    <div id="favoritesModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>💖 Your Favorite Movies</h2>
+                <button class="modal-close" id="modalClose">×</button>
+            </div>
+            <div id="favoritesList"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
